@@ -1,3 +1,4 @@
+import * as fs from 'fs';
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
@@ -25,8 +26,19 @@ console.log('Value of process.env.DB_PORT:', process.env.DB_PORT); // Add this l
       entities: [User], // Ahora especificamos la entidad User aquí también (o autoLoadEntities: true funciona)
       synchronize: false,
       autoLoadEntities: true,
+      options: {
+        encrypt: true, // Asegúrate de que el cifrado esté habilitado
+        cryptoCredentialsDetails: {
+          ca: [fs.readFileSync('./Certificados/server-ca.pem')] // Ajusta la ruta a tu certificado descargado
+        }
+      },
+      extra: {
+        trustServerCertificate: false, // Importante: Establecer en false para producción con el certificado CA
+      },
     }),
-    UsersModule, // Agrega el módulo de usuarios a los imports
+    UsersModule,
+    RolesModule,
+    PermissionsModule,    
   ],
   controllers: [AppController],
   providers: [AppService],
