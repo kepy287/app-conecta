@@ -11,13 +11,14 @@ import {Permission} from './permissions/entities/permission.entity';
 import {RolesPermission} from './roles/entities/roles-permission.entity';
 import 'dotenv/config';
 
+console.log('Value of process.env.DB_PORT:', process.env.DB_PORT); // Add this line
 
 @Module({
   imports: [
     TypeOrmModule.forRoot({
       type: 'mssql',
       host: process.env.DB_HOST,
-      port: parseInt(process.env.DB_PORT, 10),
+      port: process.env.DB_PORT ? parseInt(process.env.DB_PORT, 10) : 1433, // Provide a default or handle undefined  
       username: process.env.DB_USERNAME,
       password: process.env.DB_PASSWORD,
       database: process.env.DB_DATABASE,
