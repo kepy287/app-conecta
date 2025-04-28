@@ -25,12 +25,13 @@ export class RolesService {
   }
   // obtiene un rol por su rol_id
   async findOne(rol_id: number): Promise<Role | undefined> {
-    return await this.rolesRepository.findOne({ where: { rol_id } });
+    const role = await this.rolesRepository.findOne({ where: { rol_id } });
+    return role !== null ? role : undefined;
   }
 
-  // obtiene un rol por su nombre
   async findByName(nombre_rol: string): Promise<Role | undefined> {
-    return await this.rolesRepository.findOne({ where: { nombre_rol } });
+    const role = await this.rolesRepository.findOne({ where: { nombre_rol } });
+    return role !== null ? role : undefined;
   }
 
   // actualiza un rol existente por su rol_id
