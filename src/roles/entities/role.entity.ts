@@ -1,7 +1,7 @@
 import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from 'typeorm';
 import { User } from '../../users/entities/user.entity';
 import { Permission } from     '../../permissions/entities/permission.entity';
-import { RolesPermission } from './roles-permission.entity'; // Si crearemos la tabla de unión
+import { RolesPermission } from '../../roles-permissions/entities/roles-permission.entity'; // Si crearemos la tabla de unión
 
 @Entity('Roles')
 export class Role {

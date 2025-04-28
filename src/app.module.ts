@@ -9,7 +9,8 @@ import {RolesModule} from './roles/roles.module';
 import {PermissionsModule} from './permissions/permissions.module';
 import {Role} from './roles/entities/role.entity';
 import {Permission} from './permissions/entities/permission.entity';
-import {RolesPermission} from './roles/entities/roles-permission.entity';
+import {RolesPermission} from './roles-permissions/entities/roles-permission.entity';
+import { RolesPermissionsModule } from './roles-permissions/roles-permissions.module';
 import 'dotenv/config';
 
 console.log('Value of process.env.DB_PORT:', process.env.DB_PORT); // Add this line
@@ -23,7 +24,7 @@ console.log('Value of process.env.DB_PORT:', process.env.DB_PORT); // Add this l
       username: process.env.DB_USERNAME,
       password: process.env.DB_PASSWORD,
       database: process.env.DB_DATABASE,
-      entities: [User], // Ahora especificamos la entidad User aquí también (o autoLoadEntities: true funciona)
+      entities: [User, Role, Permission, RolesPermission], // Ahora especificamos la entidad User aquí también (o autoLoadEntities: true funciona)
       synchronize: false,
       autoLoadEntities: true,
       options: {

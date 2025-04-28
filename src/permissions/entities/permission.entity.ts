@@ -1,7 +1,9 @@
 import { Entity, PrimaryGeneratedColumn, Column, ManyToMany, JoinTable, OneToMany } from 'typeorm';
 import { Role } from '../../roles/entities/role.entity';
-import { RolesPermission } from '../../roles/entities/roles-permission.entity'; // Si crearemos la tabla de unión
+import { RolesPermission } from '../../roles-permissions/entities/roles-permission.entity'; // Si crearemos la tabla de unión
 
+// define el nombre de la tabla en la bd
+// @PrimaryGeneratedColumn() define la columna id como la clave primaria autoincremental y la nombre permiso_id
 @Entity('Permisos')
 export class Permission {
   @PrimaryGeneratedColumn()
