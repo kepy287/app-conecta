@@ -4,6 +4,11 @@ import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { UsersModule } from './users/users.module'; // Importa el módulo de usuarios
 import { User } from './users/entities/user.entity';
+import {RolesModule} from './roles/roles.module';
+import {PermissionsModule} from './permissions/permissions.module';
+import {Role} from './roles/entities/role.entity';
+import {Permission} from './permissions/entities/permission.entity';
+import {RolesPermission} from './roles/entities/roles-permission.entity';
 import 'dotenv/config';
 
 
