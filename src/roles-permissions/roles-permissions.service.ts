@@ -10,25 +10,25 @@ export class RolesPermissionsService {
     private rolesPermissionsRepository: Repository<RolesPermission>,
   ) {}
 
-  async assignPermissionToRole(rolId: number, permisoId: number): Promise<RolesPermission> {
-    const association = this.rolesPermissionsRepository.create({ rolId: rolId, permisoId: permisoId }); // Corrección aquí
+  async assignPermissionToRole(rol_id: number, permiso_id: number): Promise<RolesPermission> {
+    const association = this.rolesPermissionsRepository.create({ rol_id: rol_id, permiso_id: permiso_id }); // Corrección aquí
     return await this.rolesPermissionsRepository.save(association);
   }
 
-  async removePermissionFromRole(rolId: number, permisoId: number): Promise<void> {
-    await this.rolesPermissionsRepository.delete({ rolId: rolId, permisoId: permisoId });
+  async removePermissionFromRole(rol_id: number, permiso_id: number): Promise<void> {
+    await this.rolesPermissionsRepository.delete({ rol_id: rol_id, permiso_id: permiso_id });
   }
 
-  async getPermissionsForRole(rolId: number): Promise<RolesPermission[]> {
+  async getPermissionsForRole(rol_id: number): Promise<RolesPermission[]> {
     return await this.rolesPermissionsRepository.find({
-      where: { rolId: rolId },
+      where: { rol_id: rol_id },
       relations: ['permission'],
     });
   }
 
-  async getRolesForPermission(permisoId: number): Promise<RolesPermission[]> {
+  async getRolesForPermission(permiso_id: number): Promise<RolesPermission[]> {
     return await this.rolesPermissionsRepository.find({
-      where: { permisoId: permisoId },
+      where: { permiso_id: permiso_id },
       relations: ['role'],
     });
   }
