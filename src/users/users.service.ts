@@ -5,6 +5,7 @@ import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 import { User } from './entities/user.entity';
 import * as bcrypt from 'bcrypt';
+import { format } from 'date-fns';
 
 
 @Injectable()
@@ -18,7 +19,18 @@ export class UsersService {
   async create(createUserDto: CreateUserDto): Promise<User> {
     const saltRounds = 10;
     const hashedPassword = await bcrypt.hash(createUserDto.pass, saltRounds);
-    const user = this.usersRepository.create({ ...createUserDto, pass: hashedPassword });
+
+    let fechaNacFormateada: string | null = null;
+    if (createUserDto.fecha_nac) {
+      fechaNacFormateada = format(createUserDto.fecha_nac, 'yyyy-MM-dd');
+    }
+
+    const user = this.usersRepository.create({
+      ...createUserDto,
+      pass: hashedPassword,
+      fecha_nac: fechaNacFormateada as any, // Cast a 'any' para que coincida con el tipo en la entidad (Date o string)
+    });
+
     return await this.usersRepository.save(user);
   }
 
