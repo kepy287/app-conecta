@@ -24,8 +24,8 @@ export class RolesService {
     return await this.rolesRepository.find();
   }
   // obtiene un rol por su rol_id
-  async findOne(rol_id: number): Promise<Role | undefined> {
-    const role = await this.rolesRepository.findOne({ where: { rol_id } });
+  async findOne(id: number): Promise<Role | undefined> {
+    const role = await this.rolesRepository.findOne({ where: { id } });
     return role !== null ? role : undefined;
   }
 
@@ -35,8 +35,8 @@ export class RolesService {
   }
 
   // actualiza un rol existente por su rol_id
-  async update(rol_id: number, updateRoleDto: UpdateRoleDto): Promise<Role | undefined> {
-    const role: Role | null = await this.rolesRepository.findOne({ where: { rol_id } });
+  async update(id: number, updateRoleDto: UpdateRoleDto): Promise<Role | undefined> {
+    const role: Role | null = await this.rolesRepository.findOne({ where: { id } });
     if (!role) {
       return undefined; // Retornamos undefined explícitamente si no se encuentra el rol
     }
@@ -45,7 +45,7 @@ export class RolesService {
   }
 
   // elimina un rol por su rol_id
-  async remove(rol_id: number): Promise<void> {
-    await this.rolesRepository.delete(rol_id);
+  async remove(id: number): Promise<void> {
+    await this.rolesRepository.delete(id);
   }
 }
