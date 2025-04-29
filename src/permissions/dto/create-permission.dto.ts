@@ -6,7 +6,7 @@ export class CreatePermissionDto {
   @IsNotEmpty()
   @IsString()
   @Length(1, 50)
-  nombre_permiso: string;
+  nombre: string;
 
   @IsOptional()
   @IsString()
