@@ -3,13 +3,13 @@ import { User } from '../../users/entities/user.entity';
 import { Permission } from     '../../permissions/entities/permission.entity';
 import { RolesPermission } from '../../roles-permissions/entities/roles-permission.entity'; // Si crearemos la tabla de unión
 
-@Entity('Roles')
+@Entity('roles')
 export class Role {
   @PrimaryGeneratedColumn()
   id: number;
 
   @Column({ length: 50, unique: true })
-  nombre_rol: string;
+  nombre: string;
 
   @Column({ length: 255, nullable: true })
   descripcion: string;

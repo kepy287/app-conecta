@@ -6,7 +6,7 @@ export class CreateRoleDto {
   @IsNotEmpty()
   @IsString()
   @Length(1, 50)
-  nombre_rol: string;
+  nombre: string;
 
   @IsOptional()
   @IsString()

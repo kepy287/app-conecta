@@ -29,8 +29,8 @@ export class RolesService {
     return role !== null ? role : undefined;
   }
 
-  async findByName(nombre_rol: string): Promise<Role | undefined> {
-    const role = await this.rolesRepository.findOne({ where: { nombre_rol } });
+  async findByName(nombre: string): Promise<Role | undefined> {
+    const role = await this.rolesRepository.findOne({ where: { nombre } });
     return role !== null ? role : undefined;
   }
 
