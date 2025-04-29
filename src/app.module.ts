@@ -40,6 +40,7 @@ console.log('Value of process.env.DB_PORT:', process.env.DB_PORT); // Add this l
     UsersModule,
     RolesModule,
     PermissionsModule,    
+    RolesPermissionsModule
   ],
   controllers: [AppController],
   providers: [AppService],
