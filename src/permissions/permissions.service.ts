@@ -25,19 +25,19 @@ export class PermissionsService {
   }
 
   // obteiene un permiso por su id
-  async findOne(permiso_id: number): Promise<Permission | undefined> {
-    const permission = await this.permissionsRepository.findOne({ where: { permiso_id } });
+  async findOne(id: number): Promise<Permission | undefined> {
+    const permission = await this.permissionsRepository.findOne({ where: { id } });
     return permission !== null ? permission : undefined;
   }
 
   // obtiene un permioso por su name
-  async findByName(nombre_permiso: string): Promise<Permission | undefined> {
-    const permission = await this.permissionsRepository.findOne({ where: { nombre_permiso } });
+  async findByName(nombre: string): Promise<Permission | undefined> {
+    const permission = await this.permissionsRepository.findOne({ where: { nombre } });
     return permission !== null ? permission : undefined;
   }
 
-  async update(permiso_id: number, updatePermissionDto: UpdatePermissionDto): Promise<Permission | undefined> {
-    const permission: Permission | null = await this.permissionsRepository.findOne({ where: { permiso_id } });
+  async update(id: number, updatePermissionDto: UpdatePermissionDto): Promise<Permission | undefined> {
+    const permission: Permission | null = await this.permissionsRepository.findOne({ where: { id } });
     if (!permission) {
       return undefined;
     }

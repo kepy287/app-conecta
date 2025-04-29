@@ -7,10 +7,10 @@ import { RolesPermission } from '../../roles-permissions/entities/roles-permissi
 @Entity('Permisos')
 export class Permission {
   @PrimaryGeneratedColumn()
-  permiso_id: number;
+  id: number;
 
   @Column({ length: 50, unique: true })
-  nombre_permiso: string;
+  nombre: string;
 
   @Column({ length: 255, nullable: true })
   descripcion: string;
