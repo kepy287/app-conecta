@@ -23,10 +23,13 @@ export class CreateUserDto {
   @IsAlpha()
   sexo: string;
 
-  @IsNotEmpty()
-  @IsString() // Primero aseguramos que el input sea un string
-  @Transform(({ value }) => new Date(value)) // Transformamos el string a Date
-  @IsDate() // Luego validamos que la transformación haya resultado en una Date válida
+  @Transform(({ value }) => {
+    console.log('Valor de fecha_nac antes de la transformación:', value);
+    const date = new Date(value);
+    console.log('Valor de fecha_nac después de la transformación:', date);
+    return date;
+  })
+  @IsDate()
   fecha_nac: Date;
 
   @IsNotEmpty()
