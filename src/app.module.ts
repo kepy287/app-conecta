@@ -34,7 +34,7 @@ console.log('Value of process.env.DB_PORT:', process.env.DB_PORT); // Add this l
         }
       },
       extra: {
-        trustServerCertificate: false, // Importante: Establecer en false para producción con el certificado CA
+        trustServerCertificate: true, // Importante: Establecer en false para producción con el certificado CA
       },
     }),
     UsersModule,
