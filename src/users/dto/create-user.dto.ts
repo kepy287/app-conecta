@@ -1,5 +1,6 @@
 // estos son decoradores, especifican las validaciones que deben cumplir los datos al crear un nuevo usuario
 import { IsNotEmpty, IsString, IsEmail, IsDate, IsInt, Length, IsOptional, IsAlpha } from 'class-validator';
+import { Transform } from 'class-transformer';
 
 export class CreateUserDto {
   @IsNotEmpty()
@@ -23,7 +24,9 @@ export class CreateUserDto {
   sexo: string;
 
   @IsNotEmpty()
-  @IsDate()
+  @IsString() // Primero aseguramos que el input sea un string
+  @Transform(({ value }) => new Date(value)) // Transformamos el string a Date
+  @IsDate() // Luego validamos que la transformación haya resultado en una Date válida
   fecha_nac: Date;
 
   @IsNotEmpty()
