@@ -4,35 +4,37 @@ import { Repository } from 'typeorm';
 import { User } from '../../users/entities/user.entity'; // Asegúrate de la ruta correcta a tu entidad User
 import { LoginDto } from '../dto/login.dto';
 import * as bcrypt from 'bcrypt';
+import { JwtService } from '@nestjs/jwt'; // Importa JwtService
 
 @Injectable()
 export class AuthService {
   constructor(
     @InjectRepository(User)
     private usersRepository: Repository<User>,
+    private jwtService: JwtService, // Injecta JwtService
   ) {}
 
   async login(loginDto: LoginDto): Promise<any> {
     const { usuario, pass } = loginDto;
 
-    // Buscar al usuario por nombre de usuario o correo electrónico (ajusta tu lógica de búsqueda)
     const user = await this.usersRepository.findOne({
-      where: [{ usuario }, { email: usuario }], // Intenta buscar por ambos campos
+      where: [{ usuario }, { email: usuario }],
     });
 
     if (!user) {
       throw new NotFoundException('Usuario no encontrado');
     }
 
-    // Comparar la contraseña proporcionada con la contraseña hasheada en la base de datos
     const isPasswordValid = await bcrypt.compare(pass, user.pass);
 
     if (!isPasswordValid) {
       throw new UnauthorizedException('Contraseña incorrecta');
     }
 
-    // Si las credenciales son válidas, aquí generaremos el token (lo haremos en el siguiente paso)
-    // Por ahora, devolvemos el usuario
-    return { access_token: 'GENERATED_TOKEN_HERE' }; // Placeholder para el token
+    // Generar el token JWT
+    const payload = { sub: user.id, usuario: user.usuario, roles: [] }; // Personaliza el payload con la información que necesites
+    const accessToken = await this.jwtService.signAsync(payload);
+
+    return { access_token: accessToken };
   }
 }

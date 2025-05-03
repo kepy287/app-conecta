@@ -1,3 +1,5 @@
+// Aquí, hemos definido una ruta POST en /auth/login que recibe un objeto LoginDto en el cuerpo de la solicitud 
+// y llama al método login de nuestro AuthService
 import { Controller, Post, Body, HttpCode, HttpStatus } from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { LoginDto } from '../dto/login.dto';
