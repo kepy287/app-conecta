@@ -11,6 +11,7 @@ import {Role} from './roles/entities/role.entity';
 import {Permission} from './permissions/entities/permission.entity';
 import {RolesPermission} from './roles-permissions/entities/roles-permission.entity';
 import { RolesPermissionsModule } from './roles-permissions/roles-permissions.module';
+import { AuthModule } from './auth/auth.module';
 import 'dotenv/config';
 
 console.log('Value of process.env.DB_PORT:', process.env.DB_PORT); // Add this line
@@ -40,7 +41,7 @@ console.log('Value of process.env.DB_PORT:', process.env.DB_PORT); // Add this l
     UsersModule,
     RolesModule,
     PermissionsModule,    
-    RolesPermissionsModule
+    RolesPermissionsModule, AuthModule
   ],
   controllers: [AppController],
   providers: [AppService],
