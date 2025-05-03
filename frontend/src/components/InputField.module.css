@@ -1,0 +1,24 @@
+.input-field-container {
+    margin-bottom: 15px;
+  }
+  
+  .input-field-container label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 0.9em;
+    color: #333;
+  }
+  
+  .input-field-container input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+  }
+  
+  .input-field-container input:focus {
+    outline: none;
+    border-color: #007bff; /* Un color de foco */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  }

@@ -1,0 +1,20 @@
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Espacio entre los elementos del formulario */
+  }
+  
+  .forgot-password {
+    text-align: right;
+    margin-bottom: 10px;
+  }
+  
+  .forgot-password a {
+    font-size: 0.9em;
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  .forgot-password a:hover {
+    text-decoration: underline;
+  }
