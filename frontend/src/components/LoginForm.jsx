@@ -27,7 +27,7 @@ function LoginForm() {
       localStorage.setItem('authToken', token);
 
       // Y aquí redirigirías al usuario a la página principal
-      window.location.href = '/dashboard'; // Reemplaza '/dashboard' con la ruta de tu página principal
+      //window.location.href = '/dashboard'; // Reemplaza '/dashboard' con la ruta de tu página principal
 
     } catch (error) {
       console.error('Error de inicio de sesión:', error.response ? error.response.data : error.message);
