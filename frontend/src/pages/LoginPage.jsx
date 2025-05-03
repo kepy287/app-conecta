@@ -1,6 +1,6 @@
-import React from 'react';/// importamos React
+import React from 'react';
 import LoginForm from '../components/LoginForm';
-import './LoginPage.module.css'; // Importamos el archivo de estilos (opcional)
+import './LoginPage.module.css'; // Importamos los estilos para LoginPage
 
 function LoginPage() {
   return (
