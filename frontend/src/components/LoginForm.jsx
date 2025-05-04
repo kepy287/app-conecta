@@ -36,7 +36,7 @@ function LoginForm() {
   };
 
   return (
-    <form method = "post" onSubmit={handleSubmit} className="login-form">
+    <form onSubmit={handleSubmit} className="login-form" method = "post">
       {error && <div className="error-message">{error}</div>} {/* Mostrar mensaje de error si existe */}
       <InputField
         label="Ingresa tu nombre de usuario o correo"
