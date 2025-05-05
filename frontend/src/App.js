@@ -1,12 +1,17 @@
 import React from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import LoginPage from './pages/LoginPage';
-import './App.css'; // Puedes mantener o eliminar este archivo
+import MainPage from './pages/MainPage'; // Importa tu componente principal
 
 function App() {
   return (
-    <div className="App">
-      <LoginPage />
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<LoginPage />} /> {/* Ruta para la página de inicio de sesión */}
+        <Route path="/main" element={<MainPage />} /> {/* Ruta para la página principal */}
+        {/* Puedes agregar más rutas aquí */}
+      </Routes>
+    </BrowserRouter>
   );
 }
 
