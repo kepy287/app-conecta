@@ -1,0 +1,32 @@
+.topNavigation {
+    background-color: white;
+    border-bottom: 1px solid #e0e0e0;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+   }
+   
+   
+   .tabs {
+    display: flex;
+   }
+   
+   
+   .tab {
+    padding: 10px 15px;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    margin-right: 15px;
+   }
+   
+   
+   .tab.active {
+    border-bottom-color: #3f51b5;
+    font-weight: bold;
+   }
+   
+   
+   .notification {
+    cursor: pointer;
+   }

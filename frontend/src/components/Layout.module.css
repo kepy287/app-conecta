@@ -1,0 +1,21 @@
+.container {
+    display: flex;
+    min-height: 100vh;
+   }
+   
+   
+   .sidebar {
+    background-color: #283593;
+    color: white;
+    width: 250px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+   }
+   
+   
+   .mainContent {
+    flex-grow: 1;
+    padding: 20px;
+    background-color: #f9f9f9;
+   }

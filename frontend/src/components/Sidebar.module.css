@@ -1,0 +1,31 @@
+.date {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-bottom: 20px;
+   }
+   
+   
+   .navItem {
+    padding: 10px 0;
+    margin-bottom: 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+   }
+   
+   
+   .navItem.active {
+    background-color: #3f51b5;
+    border-radius: 5px;
+    padding-left: 10px;
+   }
+   
+   
+   .navItem span {
+    margin-left: 10px;
+   }
+   
+   
+   .logo {
+    margin-top: auto;
+   }

@@ -1,0 +1,56 @@
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+   }
+   
+   
+   .title {
+    font-size: 1.5em;
+    font-weight: bold;
+   }
+   
+   
+   .searchContainer {
+    display: flex;
+   }
+   
+   
+   .searchInput {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px 0 0 5px;
+    width: 250px;
+   }
+   
+   
+   .searchButton {
+    background-color: #283593;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+   }
+   
+   
+   .actions {
+    display: flex;
+   }
+   
+   
+   .actionButton {
+    border: 1px solid #ccc;
+    padding: 8px 12px;
+    border-radius: 5px;
+    margin-left: 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+   }
+   
+   
+   .actionButton svg {
+    margin-right: 5px;
+   }
