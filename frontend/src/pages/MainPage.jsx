@@ -1,12 +1,12 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
-import App from '../App'; // Importa tu componente principal App
- import 'src/index.css'; // Importa estilos globales (opcional)
 
-ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
+function MainPage() {
+  return (
+    <div>
+      <h1>Esta es la página principal</h1>
+      {/* ... el contenido de tu página principal ... */}
+    </div>
+  );
+}
 
 export default MainPage;

@@ -4,6 +4,7 @@ import Button from './Button';
 import './LoginForm.module.css';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom'; // Import useNavigate
+import { Link } from 'react-router-dom';
 
 function LoginForm() {
   const [usernameOrEmail, setUsernameOrEmail] = useState('');
@@ -51,7 +52,7 @@ function LoginForm() {
         onChange={(e) => setPassword(e.target.value)}
       />
       <div className="forgot-password">
-        <a href="/forgot-password">Olvidé mi contraseña</a>
+        <Link to="/forgot-password">Olvidé mi contraseña</Link>
       </div>
       <Button type="submit">Ingresar</Button>
     </form>
