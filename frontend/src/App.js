@@ -4,6 +4,7 @@ import LoginPage from './pages/LoginPage';
 import MainPage from './pages/MainPage'; // Importa tu componente principal
 import ForgotPasswordPage from './pages/ForgotPasswordPage'; // Importa el nuevo componente
 import UserList from './pages/UserList'; // Importa el componente UserList
+import Layout from './components/Layout'; // ¡Importa el componente Layout!
 
 function App() {
   return (
