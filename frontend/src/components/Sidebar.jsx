@@ -11,7 +11,7 @@ const Sidebar = () => {
       <div className={styles.date}>
         {day} <br /> {date}
       
-      <div className={styles.navItem active}>Panel de control </div>
+      <div className={styles.navItem.active}>Panel de control </div>
       <div className={styles.navItem}>Home</div>
       <div className={styles.navItem}>Evaluación</div>
       <div className={styles.navItem}>Asignación</div>
@@ -19,8 +19,10 @@ const Sidebar = () => {
       <div className={styles.navItem}>Matriz de servicios</div>
       <div className={styles.navItem}>((())) Close the loop</div>
       <div className={styles.navItem}>N Usuarios</div>
+      </div>
       <div className={styles.logo}>Logo</div> {/* Aquí iría tu logo */}
     </div>
+    
   );
 };
 
