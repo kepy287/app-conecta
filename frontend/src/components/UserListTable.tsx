@@ -45,10 +45,10 @@ import React from 'react';
 interface User {
   id: number;
   usuario: string;
-  nombre: string;
+  nombres: string;
   cargo: string;
-  fechaCreacion: string;
-  estado: 'activo' | 'inactivo';
+  fecha_creacion: string;
+  estado: 'A' | 'I';
 }
 
 interface UserListTableProps {
@@ -56,6 +56,20 @@ interface UserListTableProps {
 }
 
 const UserListTable: React.FC<UserListTableProps> = ({ users }) => {
+
+  const formatDate = (dateString: string): string => {
+    try {
+      const date = new Date(dateString);
+      const day = String(date.getDate()).padStart(2, '0');
+      const month = String(date.getMonth() + 1).padStart(2, '0'); // Los meses van de 0 a 11
+      const year = date.getFullYear();
+      return `${day}-${month}-${year}`;
+    } catch (error) {
+      console.error("Error al formatear la fecha:", error);
+      return "Fecha Inválida";
+    }
+  };
+
   return (
     <div className="overflow-x-auto shadow-md rounded-md">
       <table className="min-w-full leading-normal">
@@ -81,12 +95,12 @@ const UserListTable: React.FC<UserListTableProps> = ({ users }) => {
               </td>
               <td className="px-3 py-3">{user.id}</td>
               <td className="px-3 py-3">{user.usuario}</td>
-              <td className="px-3 py-3">{user.nombre}</td>
+              <td className="px-3 py-3">{user.nombres}</td>
               <td className="px-3 py-3">{user.cargo}</td>
-              <td className="px-3 py-3">{user.fechaCreacion}</td>
+              <td className="px-3 py-3">{formatDate(user.fecha_creacion)}</td>
               <td className="px-3 py-3">
                 <span className={`inline-block py-1 px-2 rounded-full text-xs font-semibold ${
-                  user.estado === 'activo' ? 'bg-green-200 text-green-700' : 'bg-red-200 text-red-700'
+                  user.estado === 'A' ? 'bg-green-200 text-green-700' : 'bg-red-200 text-red-700'
                 }`}>
                   {user.estado.charAt(0).toUpperCase() + user.estado.slice(1)}
                 </span>

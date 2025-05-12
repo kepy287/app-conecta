@@ -2,9 +2,9 @@
 export interface User {
     id: number;
     usuario: string;
-    nombre: string;
+    nombres: string;
     cargo: string;
-    fechaCreacion: string;
-    estado: 'activo' | 'inactivo'; // Ajusta los posibles estados según tu base de datos
+    fecha_creacion: string;
+    estado: 'A' | 'I'; // Ajusta los posibles estados según tu base de datos
     // ... otras propiedades de tu usuario
   }

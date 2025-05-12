@@ -6,7 +6,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom'; // Import useNavigate
 import { Link } from 'react-router-dom';
 
-function LoginForm() {
+function LoginForm() {  
   const [usernameOrEmail, setUsernameOrEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
@@ -26,7 +26,7 @@ function LoginForm() {
       localStorage.setItem('authToken', token);
 
       // Redirige a la página principal usando navigate
-      navigate('/main'); // Reemplaza '/main' con la ruta de tu ventana principal
+      navigate('/users'); // Reemplaza '/main' con la ruta de tu ventana principal
 
     } catch (error) {
       console.error('Error de inicio de sesión:', error.response ? error.response.data : error.message);
