@@ -1,6 +1,6 @@
 import React from 'react';
 //import Sidebar from './Sidebar';
-import TopNavigation from './TopNavigation';
+//import TopNavigation from './TopNavigation';
 import styles from './Layout.module.css';
 
 
@@ -9,7 +9,7 @@ const Layout = ({ children }) => {
  <div className={styles.container}>
  
  <div className={styles.mainContent}>
- <TopNavigation />
+ 
  {children} {/* Aquí se renderizará el contenido de las páginas */}
  </div>
  </div>
