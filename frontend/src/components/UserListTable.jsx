@@ -28,7 +28,8 @@ const UserListTable = ({ users }) => {
             <td>{user.fechaCreacion}</td>
             <td><span className={`${styles.status} ${styles[user.estado]}`}>{user.estado.charAt(0).toUpperCase() + user.estado.slice(1)}</span></td>
             <td className={styles.actionsColumn}>
-              <button className={styles.actionsButton}><DotsIcon /></button>
+              <button className={styles.actionsButton}>{/*<DotsIcon />*/}
+              </button>
             </td>
           </tr>
         ))}

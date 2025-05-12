@@ -2,38 +2,28 @@ const { override } = require('customize-cra');
 
 module.exports = override(
   (config) => {
-    config.module.rules = config.module.rules.map((rule) => {
-      if (rule.oneOf) {
-        rule.oneOf = rule.oneOf.map((oneOfRule) => {
-          if (
-            oneOfRule.test &&
-            oneOfRule.test.toString() === /\.svg$/.toString() &&
-            oneOfRule.loader === require.resolve('@svgr/webpack')
-          ) {
-            return {
-              ...oneOfRule,
-              options: {
-                ...oneOfRule.options,
-                throwIfNamespace: false,
-              },
-            };
-          }
-          return oneOfRule;
-        });
-      } else if (rule.test && rule.test.toString() === /\.svg$/.toString()) {
+    const svgRegex = /\.svg$/;
+
+    config.module.rules = config.module.rules.map(rule => {
+      if (rule.test && rule.test.toString() === svgRegex.toString()) {
         return {
           ...rule,
-          use: [
-            {
-              loader: '@svgr/webpack',
-              options: {
-                throwIfNamespace: false,
-              },
-            },
-          ],
+          exclude: [/\.svg$/], // Excluir archivos .svg de la regla por defecto
         };
       }
       return rule;
+    });
+
+    config.module.rules.push({
+      test: /\.svg$/,
+      use: [
+        {
+          loader: '@svgr/webpack',
+          options: {
+            throwIfNamespace: false,
+          },
+        },
+      ],
     });
 
     return config;

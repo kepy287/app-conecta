@@ -1,5 +1,7 @@
 import React from 'react';
 import styles from './UserListHeader.module.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faFilter, faFileExport, faTh } from '@fortawesome/free-solid-svg-icons'; // Importa los iconos específicos
 //import { ReactComponent as SearchIcon } from '../assets/search.svg';
 //import { ReactComponent as FilterIcon } from '../assets/filter.svg';
 //import { ReactComponent as ExportIcon } from '../assets/export.svg';
@@ -17,13 +19,13 @@ const UserListHeader = () => {
  </div>
  <div className={styles.actions}>
  <button className={styles.actionButton}>
- <FilterIcon /> Filtrar
+    <FontAwesomeIcon icon={faFilter} /> Filtrar
  </button>
  <button className={styles.actionButton}>
- <ExportIcon /> Exportar
+    <FontAwesomeIcon icon={faFileExport} /> Exportar
  </button>
  <button className={styles.actionButton}>
- <GridIcon />
+    <FontAwesomeIcon icon={faTh} />
  </button>
  </div>
  </div>

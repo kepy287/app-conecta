@@ -13,8 +13,8 @@ const UserList = () => {
 
  return (
  <div>
- <UserListHeader />
- <UserListTable users={users} />
+    <UserListHeader />
+    <UserListTable users={users} />
  </div>
  );
 };
