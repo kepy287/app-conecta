@@ -1,10 +1,10 @@
 import React from 'react';
 import styles from './UserListHeader.module.css';
-import { ReactComponent as SearchIcon } from '../assets/search.svg';
-import { ReactComponent as FilterIcon } from '../assets/filter.svg';
-import { ReactComponent as ExportIcon } from '../assets/export.svg';
-import { ReactComponent as GridIcon } from '../assets/grid.svg';
-import { ReactComponent as ListIcon } from '../assets/list.svg';
+//import { ReactComponent as SearchIcon } from '../assets/search.svg';
+//import { ReactComponent as FilterIcon } from '../assets/filter.svg';
+//import { ReactComponent as ExportIcon } from '../assets/export.svg';
+//import { ReactComponent as GridIcon } from '../assets/grid.svg';
+//import { ReactComponent as ListIcon } from '../assets/list.svg';
 
 
 const UserListHeader = () => {

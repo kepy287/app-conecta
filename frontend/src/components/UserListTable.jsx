@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './UserListTable.module.css';
-import { ReactComponent as DotsIcon } from '../assets/dots-vertical.svg';
+//import { ReactComponent as DotsIcon } from '../assets/dots-vertical.svg';
 
 const UserListTable = ({ users }) => {
   return (
