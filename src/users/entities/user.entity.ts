@@ -1,5 +1,9 @@
 import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn, ManyToOne, JoinColumn } from 'typeorm';
 import { Role } from '../../roles/entities/role.entity'; // Importa la entidad Role si la vas a relacionar
+import { Servicio} from '../'
+import { Servicio } from '../servicios/entities/servicio.entity'; // Asegúrate de que esta ruta sea correcta
+import { UsuarioServicio } from '../servicios/entities/usuario-servicio.entity'; // Asegúrate de que esta ruta sea correcta
+
 
 @Entity('Usuarios') // Especifica el nombre de la tabla en la base de datos
 export class User {
