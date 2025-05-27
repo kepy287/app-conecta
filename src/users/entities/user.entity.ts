@@ -1,8 +1,7 @@
-import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn, ManyToOne, JoinColumn } from 'typeorm';
+import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn, ManyToOne, ManyToMany, OneToMany, JoinColumn } from 'typeorm';
 import { Role } from '../../roles/entities/role.entity'; // Importa la entidad Role si la vas a relacionar
-import { Servicio} from '../'
-import { Servicio } from '../servicios/entities/servicio.entity'; // Asegúrate de que esta ruta sea correcta
-import { UsuarioServicio } from '../servicios/entities/usuario-servicio.entity'; // Asegúrate de que esta ruta sea correcta
+import { Servicio } from '../../servicios/entities/servicio.entity';
+import { UsuarioServicio } from '../../servicios/entities/usuario-servicio.entity'; // Asegúrate de que esta ruta sea correcta
 
 
 @Entity('Usuarios') // Especifica el nombre de la tabla en la base de datos
@@ -65,4 +64,12 @@ export class User {
   @ManyToOne(() => Role, (role) => role.users)
   @JoinColumn({ name: 'rol_id' })
   rol: Role;
+
+  // Relación ManyToMany para acceder a los servicios directamente desde el usuario
+  @ManyToMany(() => Servicio, (servicio) => servicio.usuarios)
+  servicios: Servicio[];
+
+  // Relación OneToMany con la tabla intermedia si necesitas acceder a ella directamente
+  @OneToMany(() => UsuarioServicio, (usuarioServicio) => usuarioServicio.usuario)
+  usuarioServicios: UsuarioServicio[];
 }

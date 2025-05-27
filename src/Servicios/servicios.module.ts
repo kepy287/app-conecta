@@ -4,15 +4,15 @@ import { Servicio } from './entities/servicio.entity';
 import { ServiciosController } from './controllers/servicios.controller';
 import { ServiciosService } from './services/servicios.service';
 import { UsuarioServicio } from './entities/usuario-servicio.entity';
-import { Usuario } from '../usuarios/entities/usuario.entity'; // Asegúrate de que esta ruta sea correcta para tu entidad Usuario
-import { UsuariosService } from '../usuarios/services/usuarios.service'; // Si necesitas inyectar el servicio de usuarios
+import { User } from '../users/entities/user.entity'; // Asegúrate de que esta ruta sea correcta para tu entidad Usuario
+import { UsersService } from '../users/users.service'; // Si necesitas inyectar el servicio de usuarios
 
 @Module({
   imports: [
-    TypeOrmModule.forFeature([Servicio, UsuarioServicio, Usuario]), // Importa todas las entidades relacionadas
+    TypeOrmModule.forFeature([Servicio, UsuarioServicio, User]), // Importa todas las entidades relacionadas
   ],
   controllers: [ServiciosController],
-  providers: [ServiciosService, UsuariosService], // Agrega UsuariosService si lo usas en ServiciosService
+  providers: [ServiciosService, UsersService], // Agrega UsuariosService si lo usas en ServiciosService
   exports: [ServiciosService], // Exporta el servicio si otros módulos necesitan usarlo
 })
 export class ServiciosModule {}

@@ -12,6 +12,7 @@ import {Permission} from './permissions/entities/permission.entity';
 import {RolesPermission} from './roles-permissions/entities/roles-permission.entity';
 import { RolesPermissionsModule } from './roles-permissions/roles-permissions.module';
 import { AuthModule } from './auth/auth.module';
+import { ServiciosModule } from './servicios/servicios.module'; // Importa tu nuevo módulo de servicios
 import 'dotenv/config';
 
 console.log('Value of process.env.DB_PORT:', process.env.DB_PORT); // Add this line
