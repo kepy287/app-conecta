@@ -94,7 +94,7 @@ export class ServiciosService {
     return usuario.servicios;
   }
 
-  async getUsersByServiceId(servicioId: number): Promise<Usuario[]> {
+  async getUsersByServiceId(servicioId: number): Promise<User[]> {
     const servicio = await this.servicioRepository.findOne({
       where: { ID: servicioId },
       relations: ['usuarios'], // Carga la relación 'usuarios'

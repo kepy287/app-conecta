@@ -16,6 +16,15 @@ export class Servicio {
   @CreateDateColumn({ type: 'date', default: () => 'GETDATE()' }) // Para SQL Server GETDATE()
   fecha_creacion: Date;
 
+  @Column()
+  area: string;
+
+  @Column()
+  cliente: string;
+
+  @Column()
+  tipo: string;
+
   // Relación ManyToMany con la entidad User a través de la tabla intermedia UsuarioServicio
   @ManyToMany(() => User, (usuario) => usuario.servicios)
   @JoinTable({

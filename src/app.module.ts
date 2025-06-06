@@ -13,6 +13,7 @@ import {RolesPermission} from './roles-permissions/entities/roles-permission.ent
 import { RolesPermissionsModule } from './roles-permissions/roles-permissions.module';
 import { AuthModule } from './auth/auth.module';
 import { ServiciosModule } from './servicios/servicios.module'; // Importa tu nuevo módulo de servicios
+import { MatrizAtributoModule } from './matriz-atributo/matriz-atributo.module';
 import 'dotenv/config';
 
 console.log('Value of process.env.DB_PORT:', process.env.DB_PORT); // Add this line
@@ -42,7 +43,9 @@ console.log('Value of process.env.DB_PORT:', process.env.DB_PORT); // Add this l
     UsersModule,
     RolesModule,
     PermissionsModule,    
-    RolesPermissionsModule, AuthModule
+    RolesPermissionsModule, AuthModule,
+    ServiciosModule,         // <--- Agregar tu módulo Servicios aquí
+    MatrizAtributoModule,
   ],
   controllers: [AppController],
   providers: [AppService],
