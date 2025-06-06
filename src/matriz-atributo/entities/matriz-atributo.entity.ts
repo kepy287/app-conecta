@@ -20,7 +20,7 @@ export class MatrizAtributo {
   servicio: string;
 
   @ManyToOne(() => Servicio, (servicio) => servicio.usuarioServicios, { onDelete: 'CASCADE' })
-  @JoinColumn({ name: 'cliente_id' })
+  @JoinColumn({ name: 'cliente_id', referencedColumnName: 'ID' }) // ✅ Aquí especificamos la PK correcta
   cliente: Servicio;
 
   @Column({ length: 255 })

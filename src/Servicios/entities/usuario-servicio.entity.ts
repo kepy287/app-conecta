@@ -16,6 +16,6 @@ export class UsuarioServicio {
 
   // Modificado: Ahora apunta a la nueva propiedad 'usuarioServicios' en la entidad Servicio
   @ManyToOne(() => Servicio, (servicio) => servicio.usuarioServicios, { onDelete: 'CASCADE' })
-  @JoinColumn({ name: 'servicio_id', referencedColumnName: 'id' }) // Asegúrate de que 'id' es el nombre exacto de la PK en Servicio
+  @JoinColumn({ name: 'servicio_id', referencedColumnName: 'ID' }) // Asegúrate de que 'id' es el nombre exacto de la PK en Servicio
   servicio: Servicio;
 }
