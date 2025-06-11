@@ -4,7 +4,7 @@ import { UsuarioServicio } from '../../servicios/entities/usuario-servicio.entit
 
 @Entity('Servicios') // Nombre de tu tabla en la base de datos
 export class Servicio {
-  @PrimaryGeneratedColumn('identity') // Para SQL Server IDENTITY(1,1)
+  @PrimaryGeneratedColumn() // Para SQL Server IDENTITY(1,1)
   ID: number; // La clave primaria es 'ID' en mayúsculas
 
   @Column({ length: 255, nullable: false })

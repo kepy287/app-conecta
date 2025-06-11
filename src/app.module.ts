@@ -30,6 +30,7 @@ console.log('Value of process.env.DB_PORT:', process.env.DB_PORT); // Add this l
       entities: [User, Role, Permission, RolesPermission], // Ahora especificamos la entidad User aquí también (o autoLoadEntities: true funciona)
       synchronize: false,
       autoLoadEntities: true,
+      logging: ['query', 'error'], // O simplemente true para todo el log
       options: {
         encrypt: true, // Asegúrate de que el cifrado esté habilitado
         cryptoCredentialsDetails: {

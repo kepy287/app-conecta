@@ -9,6 +9,7 @@ export class CreateMatrizAtributoDto {
   @IsNotEmpty()
   servicio: string;
 
+  @IsNotEmpty()
   @IsInt()
   cliente_id: number;
 
