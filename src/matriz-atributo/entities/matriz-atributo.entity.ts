@@ -13,11 +13,14 @@ export class MatrizAtributo {
   @PrimaryGeneratedColumn()
   ID: number;
 
-  @Column({ length: 255 })
+  @Column({ length: 255, nullable: false })
   tipo: string;
 
-  @Column({ length: 255 })
+  @Column({ length: 255, nullable:false })
   servicio: string;
+
+  @Column({ name: 'cliente_id', type: 'int', nullable: false })
+  cliente_id: number;
 
   @ManyToOne(() => Servicio, (servicio) => servicio.matricesAtributo, { onDelete: 'CASCADE' })
   @JoinColumn({ name: 'cliente_id', referencedColumnName: 'ID' }) // ✅ Aquí especificamos la PK correcta
