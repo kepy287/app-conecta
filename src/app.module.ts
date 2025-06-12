@@ -15,6 +15,8 @@ import { AuthModule } from './auth/auth.module';
 import { ServiciosModule } from './servicios/servicios.module'; // Importa tu nuevo módulo de servicios
 import { MatrizAtributoModule } from './matriz-atributo/matriz-atributo.module';
 import 'dotenv/config';
+import { Servicio } from './servicios/entities/servicio.entity';
+import { MatrizAtributo } from './matriz-atributo/entities/matriz-atributo.entity';
 
 console.log('Value of process.env.DB_PORT:', process.env.DB_PORT); // Add this line
 
@@ -27,8 +29,8 @@ console.log('Value of process.env.DB_PORT:', process.env.DB_PORT); // Add this l
       username: process.env.DB_USERNAME,
       password: process.env.DB_PASSWORD,
       database: process.env.DB_DATABASE,
-      entities: [User, Role, Permission, RolesPermission], // Ahora especificamos la entidad User aquí también (o autoLoadEntities: true funciona)
-      synchronize: false,
+      //entities: [User, Role, Permission, RolesPermission, Servicio, MatrizAtributo                                                                                                                                                                                ], // Ahora especificamos la entidad User aquí también (o autoLoadEntities: true funciona)
+      synchronize: true, 
       autoLoadEntities: true,
       logging: ['query', 'error'], // O simplemente true para todo el log
       options: {

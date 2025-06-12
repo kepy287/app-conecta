@@ -10,7 +10,7 @@ import { Servicio } from 'src/servicios/entities/servicio.entity';
 
 @Entity('matriz_atributo')
 export class MatrizAtributo {
-  @PrimaryGeneratedColumn('identity')
+  @PrimaryGeneratedColumn()
   ID: number;
 
   @Column({ length: 255 })
@@ -19,7 +19,7 @@ export class MatrizAtributo {
   @Column({ length: 255 })
   servicio: string;
 
-  @ManyToOne(() => Servicio, (servicio) => servicio.usuarioServicios, { onDelete: 'CASCADE' })
+  @ManyToOne(() => Servicio, (servicio) => servicio.matricesAtributo, { onDelete: 'CASCADE' })
   @JoinColumn({ name: 'cliente_id', referencedColumnName: 'ID' }) // ✅ Aquí especificamos la PK correcta
   cliente: Servicio;
 

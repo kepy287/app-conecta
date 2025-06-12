@@ -1,6 +1,7 @@
 import { Entity, PrimaryGeneratedColumn, Column, ManyToMany, JoinTable, CreateDateColumn, OneToMany } from 'typeorm';
 import { User } from 'src/users/entities/user.entity';
 import { UsuarioServicio } from '../../servicios/entities/usuario-servicio.entity'; // Asegúrate de que esta ruta sea correcta
+import { MatrizAtributo } from 'src/matriz-atributo/entities/matriz-atributo.entity';
 
 @Entity('Servicios') // Nombre de tu tabla en la base de datos
 export class Servicio {
@@ -24,6 +25,10 @@ export class Servicio {
 
   @Column()
   tipo: string;
+
+  // ESTA ES LA PROPIEDAD CLAVE:
+  @OneToMany(() => MatrizAtributo, (matrizAtributo) => matrizAtributo.cliente)
+  matricesAtributo: MatrizAtributo[]; // <-- ¡ESTA ES LA PROPIEDAD `servicio.matricesAtributo`!
 
   // Relación ManyToMany con la entidad User a través de la tabla intermedia UsuarioServicio
   @ManyToMany(() => User, (usuario) => usuario.servicios)
